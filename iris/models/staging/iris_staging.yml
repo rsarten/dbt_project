@@ -1,0 +1,29 @@
+
+version: 2
+
+sources:
+  - name: public
+    schema: public
+    database: test_db
+    tables:
+      - name: iris
+      - name: test
+
+
+models:
+  - name: raw_iris
+    description: "Full copy of iris dataset"
+    columns:
+      - name: iris_class
+        description: "iris class label"
+        tests:
+          - not_null
+
+  - name: stg_iris_agg
+    description: "aggregated averages across iris class"
+    columns:
+      - name: iris_class
+        description: "iris class label"
+        tests:
+          - unique
+          - not_null
