@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 with 
 all_iris as (
     select *

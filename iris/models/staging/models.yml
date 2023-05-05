@@ -1,14 +1,4 @@
-
 version: 2
-
-sources:
-  - name: public
-    schema: public
-    database: test_db
-    tables:
-      - name: iris
-      - name: test
-
 
 models:
   - name: raw_iris
@@ -26,4 +16,16 @@ models:
         description: "iris class label"
         tests:
           - unique
+          - not_null
+
+  - name: stg_iris_max
+    description: "max values of iris properties"
+    columns:
+      - name: iris_class
+        description: "iris class label"
+        tests:
+          - not_null
+      - name: petal_length
+        description: "max length of petal"
+        tests:
           - not_null

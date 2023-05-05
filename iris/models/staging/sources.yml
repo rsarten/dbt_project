@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: public
+    schema: public
+    database: test_db
+    tables:
+      - name: iris
+      - name: test
