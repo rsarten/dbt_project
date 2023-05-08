@@ -1,0 +1,206 @@
+version: 2
+
+models:
+  - name: stg_year__counts
+    description: "Combine all year cancer counts data into single stacked table."
+    columns:
+      - name: cancer
+        description: "Full (raw) cancer type descriptor"
+      - name: sex
+        description: "Female, Male, or Total"
+        tests:
+          - accepted_values:
+              values: ['Female', 'Male', 'Total']
+              config:
+                severity: warn
+      - name: ages0_4
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages5_9
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages10_14
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages15_19
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages20_24
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages25_29
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages30_34
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages35_39
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages40_44
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages45_49
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages50_54
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages55_59
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages60_64
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages65_69
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages70_74
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages75_79
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages80_84
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages85plus
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: Total
+        description: "Count of all observations across age group for sex, cancer, year combination"
+        tests:
+          - not_null
+      - name: year
+        description: "year of observation"
+        tests:
+          - not_null
+      - name: ethnicity
+        description: "Ethnicity of count"
+        tests:
+          - accepted_values:
+              values: ['Maori', 'Non-Maori']
+              config:
+                severity: warn
+
+  - name: stg_year__rates
+    description: "Combine all year cancer rates data into single stacked table."
+    columns:
+      - name: cancer
+        description: "Full (raw) cancer type descriptor"
+      - name: sex
+        description: "Female, Male, or Total"
+        tests:
+          - accepted_values:
+              values: ['Female', 'Male', 'Total']
+              config:
+                severity: warn
+      - name: ages0_4.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages5_9.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages10_14.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages15_19.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages20_24.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages25_29.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages30_34.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages35_39.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages40_44.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages45_49.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages50_54.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages55_59.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages60_64.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages65_69.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages70_74.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages75_79.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages80_84.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: ages85plus.1
+        description: "Count of observations for particular age group"
+        tests:
+          - not_null
+      - name: Age-specific rate
+        description: "An age-specific rate is the rate at which a particular cancer occurs in each age group of a population"
+        tests:
+          - not_null
+      - name: ASR
+        description: "An ASR is a weighted mean of the age-specific rates; the weighting is based on the population distribution of a standard population."
+        tests:
+          - not_null
+      - name: year
+        description: "year of observation"
+        tests:
+          - not_null
+      - name: ethnicity
+        description: "Ethnicity of rate value"
+        tests:
+          - accepted_values:
+              values: ['Maori', 'Non-Maori']
+              config:
+                severity: warn

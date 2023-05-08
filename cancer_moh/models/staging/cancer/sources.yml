@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: health
+    schema: health
+    database: test_db
+    tables:
+      - name: cervical
+      - name: colorectal
+      - name: female_breast
+      - name: hodgkin
+      - name: leukaemia
+      - name: lung
+      - name: melanoma
+      - name: myeloproliferative
+      - name: non_hodgkin
+      - name: prostate

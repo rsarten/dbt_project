@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: health
+    schema: health
+    database: test_db
+    tables:
+      - name: counts_maori
+      - name: counts_non_maori
+      - name: counts_total
+      - name: rates_maori
+      - name: rates_non_maori
+      - name: rates_total
