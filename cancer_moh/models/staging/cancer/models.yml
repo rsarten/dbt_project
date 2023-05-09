@@ -1,2 +1,99 @@
 version: 2
 
+models:
+  - name: stg_cancer__all_stacked
+    description: "Combine all by-cancer counts and rates data into single stacked table."
+    columns:
+      - name: year
+        description: "Year of observation"
+      - name: ethnicity
+        description: "Maori, Non-Maori and Total indicators"
+      - name: ages0_4
+        description: "Count of observations for particular age group"
+      - name: ages5_9
+        description: "Count of observations for particular age group"
+      - name: ages10_14
+        description: "Count of observations for particular age group"
+      - name: ages15_19
+        description: "Count of observations for particular age group"
+      - name: ages20_24
+        description: "Count of observations for particular age group"
+      - name: ages25_29
+        description: "Count of observations for particular age group"
+      - name: ages30_34
+        description: "Count of observations for particular age group"
+      - name: ages35_39
+        description: "Count of observations for particular age group"
+      - name: ages40_44
+        description: "Count of observations for particular age group"
+      - name: ages45_49
+        description: "Count of observations for particular age group"
+      - name: ages50_54
+        description: "Count of observations for particular age group"
+      - name: ages55_59
+        description: "Count of observations for particular age group"
+      - name: ages60_64
+        description: "Count of observations for particular age group"
+      - name: ages65_69
+        description: "Count of observations for particular age group"
+      - name: ages70_74
+        description: "Count of observations for particular age group"
+      - name: ages75_79
+        description: "Count of observations for particular age group"
+      - name: ages80_84
+        description: "Count of observations for particular age group"
+      - name: ages85plus
+        description: "Count of observations for particular age group"
+      - name: total_asr
+        description: "Total count if data_type is a count, weighted mean of the age-specific rates (ASR) is data_type is a rate"
+      - name: data_type
+        description: "Sources table type for data"
+        tests:
+          - accepted_values:
+              values: ['counts_male', 'counts_female', 'counts_total', 'rates_male', 'rates_female', 'rates_total']
+              config:
+                severity: warn
+      - name: cancer
+        description: "Type of cancer of row data"
+        tests:
+          - not_null
+
+  - name: stg_cancer__cleaned
+    description: "Forward fill missing year values and drop rows that are filler or giving total of other rows"
+
+  - name: stg_cancer__melt
+    description: "Melt cleaned data into skinny format and fill in missing values"
+    columns:
+      - name: year
+        description: "Year of observation"
+        tests:
+          - not_null
+      - name: ethnicity
+        description: "Maori and Non-Maori indicators"
+        tests:
+          - accepted_values:
+              values: ['Maori', 'Non-Maori']
+              config:
+                severity: warn
+      - name: data_type
+        description: "Type of observation value, raw counts or population ratios"
+        tests:
+          - accepted_values:
+              values: ['count', 'rate']
+              config:
+                severity: warn
+      - name: sex
+        description: "Sex assigned (binary) to observation value"
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female']
+              config:
+                severity: warn
+      - name: cancer
+        description: "Cancer type label"
+      - name: age_group
+        description: "Age group classification of observation"
+      - name: value
+        quote: true
+        description: "value observed for unique classification dimensions combination provided"
+        

@@ -86,6 +86,7 @@ models:
         tests:
           - not_null
       - name: Total
+        quote: true
         description: "Count of all observations across age group for sex, cancer, year combination"
         tests:
           - not_null
@@ -114,82 +115,102 @@ models:
               config:
                 severity: warn
       - name: ages0_4.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages5_9.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages10_14.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages15_19.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages20_24.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages25_29.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages30_34.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages35_39.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages40_44.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages45_49.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages50_54.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages55_59.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages60_64.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages65_69.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages70_74.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages75_79.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages80_84.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: ages85plus.1
+        quote: true
         description: "Count of observations for particular age group"
         tests:
           - not_null
       - name: Age-specific rate
+        quote: true
         description: "An age-specific rate is the rate at which a particular cancer occurs in each age group of a population"
         tests:
           - not_null
       - name: ASR
+        quote: true
         description: "An ASR is a weighted mean of the age-specific rates; the weighting is based on the population distribution of a standard population."
         tests:
           - not_null
