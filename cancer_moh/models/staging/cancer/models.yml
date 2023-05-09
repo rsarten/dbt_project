@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_cancer__all_stacked
+  - name: stg_cancer__stacked
     description: "Combine all by-cancer counts and rates data into single stacked table."
     columns:
       - name: year

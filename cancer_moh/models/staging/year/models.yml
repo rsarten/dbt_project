@@ -225,3 +225,39 @@ models:
               values: ['Maori', 'Non-Maori']
               config:
                 severity: warn
+        
+  - name: stg_year__combine
+    description: "Melted data for counts and rates combined into single stacked table"
+    columns:
+      - name: year
+        description: "Year of observation"
+        tests:
+          - not_null
+      - name: ethnicity
+        description: "Maori and Non-Maori indicators"
+        tests:
+          - accepted_values:
+              values: ['Maori', 'Non-Maori']
+              config:
+                severity: warn
+      - name: data_type
+        description: "Type of observation value, raw counts or population ratios"
+        tests:
+          - accepted_values:
+              values: ['rate', 'count']
+              config:
+                severity: warn
+      - name: sex
+        description: "Sex assigned (binary) to observation value"
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female']
+              config:
+                severity: warn
+      - name: cancer
+        description: "Cancer type label"
+      - name: age_group
+        description: "Age group classification of observation"
+      - name: value
+        quote: true
+        description: "value observed for unique classification dimensions combination provided"

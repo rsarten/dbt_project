@@ -1,7 +1,7 @@
 with
 stacked as (
     select *
-    from {{ ref('stg_cancer__all_stacked')}}
+    from {{ ref('stg_cancer__stacked')}}
 ),
 
 -- add row number
@@ -24,7 +24,7 @@ year_grp as (
 cleaned_year as (
     select
         first_value("year") over (partition by grp) as "year",
-        {{ dbt_utils.star(from=ref('stg_cancer__all_stacked'), except=['year']) }}
+        {{ dbt_utils.star(from=ref('stg_cancer__stacked'), except=['year']) }}
     from year_grp
 ),
 
